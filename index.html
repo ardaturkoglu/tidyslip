@@ -5,7 +5,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <meta name="color-scheme" content="light dark">
 <title>Tidyslip: Cleaning Report PDF App with Before &amp; After Photos</title>
-<meta name="description" content="Turn before and after photos and a room-by-room cleaning checklist into a PDF report for your clients. Android app. Works offline, no account, no ads.">
+<meta name="description" content="Turn before and after photos and a room-by-room cleaning checklist into a PDF report for your clients. In-app camera, client sign-off with Pro. Android app. Works offline, no account, no ads.">
 <link rel="canonical" href="https://ardaturkoglu.github.io/tidyslip/">
 <meta name="theme-color" content="#FFFBF3" media="(prefers-color-scheme: light)">
 <meta name="theme-color" content="#111515" media="(prefers-color-scheme: dark)">
@@ -17,16 +17,16 @@
 <meta property="og:url" content="https://ardaturkoglu.github.io/tidyslip/">
 <meta property="og:title" content="Tidyslip: Cleaning Report PDF App">
 <meta property="og:description" content="Before and after photos and room checklists in one PDF report for your cleaning clients. Android, works offline, no account.">
-<meta property="og:image" content="https://ardaturkoglu.github.io/tidyslip/og.png">
+<meta property="og:image" content="https://ardaturkoglu.github.io/tidyslip/og-v2.jpg">
 <meta property="og:image:width" content="1200">
 <meta property="og:image:height" content="630">
-<meta property="og:image:alt" content="Tidyslip: before and after photos to a PDF report, shown on a phone next to a PDF page.">
+<meta property="og:image:alt" content="Tidyslip: before and after reports, ready to send. A PDF report page with before and after photos.">
 <meta property="og:locale" content="en_US">
 <meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:title" content="Tidyslip: Cleaning Report PDF App">
 <meta name="twitter:description" content="Before and after photos and room checklists in one PDF report for your cleaning clients.">
-<meta name="twitter:image" content="https://ardaturkoglu.github.io/tidyslip/og.png">
-<meta name="twitter:image:alt" content="Tidyslip: before and after photos to a PDF report, shown on a phone next to a PDF page.">
+<meta name="twitter:image" content="https://ardaturkoglu.github.io/tidyslip/og-v2.jpg">
+<meta name="twitter:image:alt" content="Tidyslip: before and after reports, ready to send. A PDF report page with before and after photos.">
 
 <!-- No offers or aggregateRating on purpose: there is no verified rating, and the price varies by country in Google Play. -->
 <script type="application/ld+json">
@@ -37,11 +37,11 @@
   "alternateName": "Tidyslip: Cleaning Report PDF",
   "operatingSystem": "Android",
   "applicationCategory": "BusinessApplication",
-  "description": "Create PDF cleaning reports with before and after photos, room-by-room checklists and notes. Works offline without an account.",
+  "description": "Create PDF cleaning reports with before and after photos, room-by-room checklists and notes. In-app camera with a before-photo overlay. Works offline without an account.",
   "url": "https://ardaturkoglu.github.io/tidyslip/",
-  "image": "https://ardaturkoglu.github.io/tidyslip/og.png",
-  "screenshot": "https://ardaturkoglu.github.io/tidyslip/img/01-report.webp",
-  "inLanguage": "en",
+  "image": "https://ardaturkoglu.github.io/tidyslip/og-v2.jpg",
+  "screenshot": "https://ardaturkoglu.github.io/tidyslip/img/v2-01-report-preview-free.webp",
+  "inLanguage": ["en", "pt-BR", "es", "de", "fr"],
   "author": { "@type": "Person", "name": "Arda Türkoğlu" }
 }
 </script>
@@ -177,6 +177,13 @@
   .panel ul { margin: 0 0 12px; padding-left: 1.25rem; }
   .panel li { margin-bottom: 6px; }
 
+  .pro-groups { display: grid; gap: 12px; margin: 24px 0 0; }
+  .pro-groups div { background: var(--surface); border-radius: var(--radius-card); padding: 16px; }
+  .pro-groups h3 { margin-bottom: 6px; font-size: 1.05rem; }
+  .pro-groups ul { margin: 0; padding-left: 1.2rem; color: var(--muted); }
+  .pro-groups li { margin-bottom: 4px; }
+  .shots { display: grid; gap: 24px; margin-top: 32px; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); }
+  .shots .shot { max-width: 260px; }
   .price-list { margin: 16px 0 0; padding-left: 1.25rem; }
   .price-list li { margin-bottom: 8px; }
 
@@ -199,6 +206,7 @@
     .split.reverse > :first-child { order: 2; }
     .features { grid-template-columns: 1fr 1fr; }
     .faq { grid-template-columns: 1fr 1fr; }
+    .pro-groups { grid-template-columns: 1fr 1fr 1fr; }
     .panel { padding: 40px; }
   }
   @media (min-width: 1000px) {
@@ -224,7 +232,7 @@
     <div class="wrap hero-grid">
       <div>
         <h1 id="hero-title">Cleaning reports with before &amp; after photos, as one PDF</h1>
-        <p class="lead">Tidyslip turns a finished cleaning job into a clean PDF your client can open anywhere: before and after photos, the tasks you completed and your notes, room by room.</p>
+        <p class="lead">Take the photos in the app, tick off the tasks in each room, see what’s missing, and send a multi-page PDF report before you leave the job. Made for house cleaners and small cleaning businesses.</p>
         <!-- Play linki yayında eklenecek (UTM'li Play URL'si, growth/LANDING.md {{PLAY_URL}}). Production yayından önce yayınlanırsa buton "Coming soon to Google Play" metnine çevrilir. -->
         <!-- Kapalı test dönemi (Eki 2026): CTA beta grubuna gider. Production yayında #play'e dönülür ve beta bloğu kaldırılır. -->
         <a class="cta" id="beta" href="https://groups.google.com/g/tidyslip-testers">
@@ -237,14 +245,15 @@
           <li>Works offline</li>
           <li>No account</li>
           <li>No ads</li>
+          <li>English, Português, Español, Deutsch, Français</li>
         </ul>
       </div>
       <figure>
         <div class="shot">
-          <img src="img/01-report.webp" width="600" height="1067" fetchpriority="high"
-               alt="Cleaning report preview in Tidyslip: page 1 of a sample PDF with before and after photos and a Share PDF button.">
+          <img src="img/v2-01-report-preview-free.webp" width="600" height="1067" fetchpriority="high"
+               alt="Report preview in Tidyslip: page 1 of a PDF for the Henderson family with a kitchen checklist and before and after photos, above Other options and Send report buttons.">
         </div>
-        <figcaption>Real app screen. The sample job uses illustrative photos marked “Sample”.</figcaption>
+        <figcaption>Real app screen. Business and client names are fictional; photos are illustrative.</figcaption>
       </figure>
     </div>
   </section>
@@ -255,23 +264,23 @@
         <h2 id="how-title">Three steps after every cleaning job</h2>
         <ol class="steps">
           <li>
-            <h3>Add before and after photos</h3>
-            <p>Pick them from your phone’s gallery. Each pair sits side by side, and the photos are copied into the app, so the report keeps working even if you delete the originals later.</p>
+            <h3>Take the before photos</h3>
+            <p>Start a job with a ready-made checklist (Standard, Deep or Move-out), then use the in-app camera or pick photos from your gallery.</p>
           </li>
           <li>
-            <h3>Tick off the cleaning checklist</h3>
-            <p>A short task list for each room: kitchen, bathroom, office, or whatever you name it.</p>
+            <h3>Clean room by room</h3>
+            <p>Tick off each task as you go: kitchen, bathroom, office, or whatever you name the room.</p>
           </li>
           <li>
-            <h3>Share the PDF report</h3>
-            <p>Preview the real pages, then send the report by email or any messaging app, or save it to a folder you choose.</p>
+            <h3>Take the after photos and send</h3>
+            <p>A see-through copy of the before photo helps you match the same angle. Then check what’s missing, add a message for your client and send the PDF.</p>
           </li>
         </ol>
       </div>
       <figure>
         <div class="shot">
-          <img src="img/03-pairs.webp" width="600" height="1067" loading="lazy" decoding="async"
-               alt="Before and after photo pairs for a countertop and a stovetop in the sample job, each labeled Before and After.">
+          <img src="img/v2-02-camera-after-ghost.webp" width="600" height="1067" loading="lazy" decoding="async"
+               alt="Tidyslip camera taking the kitchen After photo, with a faint overlay of the before photo at 35 percent to line up the same angle.">
         </div>
       </figure>
     </div>
@@ -279,35 +288,76 @@
 
   <section aria-labelledby="features-title">
     <div class="wrap">
-      <h2 id="features-title">Built for house cleaners and small cleaning businesses</h2>
+      <h2 id="features-title">In the free version</h2>
       <p class="lead">Everything you need to show a client what was done, and nothing you have to sign up for.</p>
       <ul class="features">
-        <li><h3>Jobs that save as you type</h3><p>Create, edit and delete cleaning jobs. Add an optional customer name and notes.</p></li>
-        <li><h3>Room sections</h3><p>Keep each room’s checklist and photos together, in the order you work.</p></li>
-        <li><h3>Cleaning checklists</h3><p>A simple list of the tasks you completed in each room, ticked off as you go.</p></li>
-        <li><h3>Before and after photo pairs</h3><p>Reorder pairs, swap before and after, and add a short caption.</p></li>
-        <li><h3>Multi-page PDF report</h3><p>Job title, date, customer, notes, checklists and photos. Long jobs continue on extra pages without cutting photos in half.</p></li>
-        <li><h3>Preview before you send</h3><p>See the actual PDF pages first, then share or save the report.</p></li>
-        <li><h3>Share or save</h3><p>Send the PDF with any app on your phone, or save it to a folder you choose.</p></li>
-        <li><h3>Backup and restore</h3><p>Save all jobs and original photos to one zip file and restore them on the same or a new phone.</p></li>
-        <li><h3>Sample job</h3><p>Open a ready-made example to see a full report before you start your own.</p></li>
+        <li><h3>Your business name on every report</h3><p>Set it once; it sits at the top of each PDF.</p></li>
+        <li><h3>Room-by-room jobs</h3><p>Before and after photo pairs, captions and a task checklist for each room.</p></li>
+        <li><h3>Ready-made checklists</h3><p>Standard, Deep and Move-out checklists you can edit for each job.</p></li>
+        <li><h3>Recent clients</h3><p>A new job for a client you’ve served before takes a few taps.</p></li>
+        <li><h3>A real multi-page PDF</h3><p>Preview every page before you send. Long jobs continue on extra pages without cutting photos in half.</p></li>
+        <li><h3>Send your way</h3><p>Send with any app on your phone, send again in one tap with the app you used last time, save the PDF to a folder, or print it.</p></li>
+        <li><h3>Backup and restore</h3><p>All jobs and original photos in one zip file, for the same or a new phone.</p></li>
+        <li><h3>Sample job</h3><p>Open a finished example report before you start your own.</p></li>
+        <li><h3>Light and dark theme</h3><p>Follows your phone’s setting.</p></li>
       </ul>
     </div>
   </section>
 
-  <section aria-labelledby="sample-title">
-    <div class="wrap split">
-      <div>
-        <h2 id="sample-title">See what your client gets</h2>
-        <p>Every report is a real, multi-page PDF that opens on any phone or computer. Each room gets its own section with a task count, the checklist and the before and after photos, so your client can see the whole job at a glance.</p>
-        <p class="muted">This page comes from the built-in sample job. Its photos are illustrative and marked “Sample”.</p>
-      </div>
-      <figure>
-        <div class="shot">
-          <img src="img/05-report-page2.webp" width="600" height="1067" loading="lazy" decoding="async"
-               alt="Second page of the sample PDF report showing the Bathroom section, its task count and a before and after photo pair.">
+  <section aria-labelledby="pro-title">
+    <div class="wrap">
+      <h2 id="pro-title">Tidyslip Pro: your business on every report</h2>
+      <p class="lead">A one-time purchase. No subscription.</p>
+      <div class="pro-groups">
+        <div>
+          <h3>Your brand</h3>
+          <ul>
+            <li>Your logo and contact details on every report, with a “Book your next clean” line on the last page.</li>
+            <li>Your review link and a QR code at the end of each report.</li>
+            <li>No “Created with Tidyslip” note.</li>
+          </ul>
         </div>
-      </figure>
+        <div>
+          <h3>Your clients</h3>
+          <ul>
+            <li>Client sign-off: your client signs on your phone and the signature is added to the last page.</li>
+            <li>Before/after images with your logo, ready to share.</li>
+          </ul>
+        </div>
+        <div>
+          <h3>Your time</h3>
+          <ul>
+            <li>Duplicate a job for repeat clients, with its rooms and tasks.</li>
+            <li>Save your own checklists and use them again.</li>
+            <li>More checklists: Vacation rental, Office and Post-construction.</li>
+            <li>Unlimited reports.</li>
+          </ul>
+        </div>
+      </div>
+      <div class="shots">
+        <figure>
+          <div class="shot">
+            <img src="img/v2-05-report-pro-page1.webp" width="600" height="1067" loading="lazy" decoding="async"
+                 alt="Pro report page 1 with the Quillbright Cleaning name, logo and contact line in the header.">
+          </div>
+          <figcaption>Your logo and contact details</figcaption>
+        </figure>
+        <figure>
+          <div class="shot">
+            <img src="img/v2-06-report-pro-closing.webp" width="600" height="1067" loading="lazy" decoding="async"
+                 alt="Last page of a Pro report with the client sign-off, a review QR code and a Book your next clean line.">
+          </div>
+          <figcaption>Client sign-off and review QR code</figcaption>
+        </figure>
+        <figure>
+          <div class="shot">
+            <img src="img/v2-07-pair-image-pro.webp" width="600" height="1067" loading="lazy" decoding="async"
+                 alt="Before and after image of an oven, side by side, with the Quillbright Cleaning logo and name below.">
+          </div>
+          <figcaption>Before/after images with your logo</figcaption>
+        </figure>
+      </div>
+      <p class="muted small" style="margin-top:16px">Business and client names in these screens are fictional; photos are illustrative.</p>
     </div>
   </section>
 
@@ -315,8 +365,8 @@
     <div class="wrap">
       <div class="panel">
         <h2 id="privacy-title">Works offline. Your jobs stay on your phone.</h2>
-        <p>Tidyslip works without an internet connection and without signing up. Customer details and photos stay on your device unless you share a report or a backup yourself. There are no ads.</p>
-        <p>Buying or restoring Pro needs an internet connection. <a href="privacy.html">Read the privacy policy</a></p>
+        <p>Tidyslip works without an internet connection and without signing up. Your jobs, client details, signatures and photos stay on your phone unless you send a report or a backup yourself. Photos taken in Tidyslip are not added to your gallery and carry no location. There are no ads.</p>
+        <p>Tidyslip sends usage and crash data to improve the app, never your jobs, clients or photos, and you can turn this off in Settings. Buying or restoring Pro needs an internet connection. <a href="privacy.html">Read the privacy policy</a></p>
       </div>
     </div>
   </section>
@@ -327,8 +377,8 @@
       <ul class="price-list">
         <li>Your first <strong>3 report exports are free</strong>. Sharing the same unchanged report again doesn’t use another one.</li>
         <li>The sample job’s report never uses your free exports.</li>
-        <li><strong>Tidyslip Pro</strong> unlocks unlimited report exports with a <strong>one-time purchase</strong>. No subscription. The price for your country is shown in Google Play and in the app before you buy.</li>
-        <li>Previewing reports, editing your jobs and backing up your data always stay free.</li>
+        <li><strong><a href="#pro-title">Tidyslip Pro</a></strong> is a <strong>one-time purchase</strong>: unlimited reports plus your brand on every report, client sign-off and more. No subscription. The price for your country is shown in Google Play and in the app before you buy.</li>
+        <li>Opening, editing and backing up your jobs always stays free. Bought Pro before? Use “Restore purchases” with the same Google Play account.</li>
       </ul>
     </div>
   </section>
@@ -347,7 +397,7 @@
         </div>
         <div>
           <h3>Can I use before and after photos I already took?</h3>
-          <p>Yes. Tidyslip adds photos from your phone’s gallery and pairs them side by side.</p>
+          <p>Yes. Take photos with the in-app camera or add them from your phone’s gallery; each pair sits side by side.</p>
         </div>
         <div>
           <h3>Is there an iPhone version?</h3>
@@ -355,7 +405,31 @@
         </div>
         <div>
           <h3>Are the dates and photos in the report verified?</h3>
-          <p>No. A Tidyslip report is a simple record you create and share. Dates and photos come from you and your phone. They are not independently verified or certified.</p>
+          <p>No. A Tidyslip report is a simple record you create and share. Dates, photos and sign-offs come from you and your phone. They are not independently verified or certified.</p>
+        </div>
+        <div>
+          <h3>Is the client sign-off legally binding?</h3>
+          <p>No. It shows your client saw the report. It isn’t a legal contract and isn’t verified.</p>
+        </div>
+        <div>
+          <h3>Do my clients need the app?</h3>
+          <p>No. They get a PDF that opens on any phone or computer.</p>
+        </div>
+        <div>
+          <h3>Is Pro a subscription?</h3>
+          <p>No. Pro is a one-time purchase tied to your Google Play account.</p>
+        </div>
+        <div>
+          <h3>Can I add my review link?</h3>
+          <p>Yes, with Pro. Your link and a QR code appear at the end of each report, with a neutral “How did we do?” line.</p>
+        </div>
+        <div>
+          <h3>Which languages does Tidyslip support?</h3>
+          <p>The app and its PDF reports are available in English, Portuguese (Brazil), Spanish (Latin America and Spain), German and French.</p>
+        </div>
+        <div>
+          <h3>Does Tidyslip collect my data?</h3>
+          <p>Only usage and crash data, which you can turn off in Settings, and an anonymous ID to check Pro. Your jobs, clients and photos are never sent. See the <a href="privacy.html">privacy policy</a>.</p>
         </div>
         <div>
           <h3>How do I move my cleaning jobs to a new phone?</h3>
