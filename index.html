@@ -129,6 +129,9 @@
   }
   .cta:hover { text-decoration: underline; }
   .cta svg { width: 20px; height: 20px; flex: none; }
+  /* Official badge (play.google.com/intl/en_us/badges, unaltered); its PNG has built-in padding, offset so the art lines up with the text. */
+  .play-badge { display: inline-block; margin: 4px 0 0 -13px; }
+  .play-badge img { display: block; height: 80px; width: auto; }
   .beta-steps { margin: 12px 0 0; font-size: .95rem; max-width: 46ch; }
   .facts { display: flex; flex-wrap: wrap; gap: 8px; margin: 4px 0 0; padding: 0; list-style: none; }
   .facts li {
@@ -197,6 +200,11 @@
   footer.site ul { list-style: none; padding: 0; margin: 0 0 12px; display: flex; flex-wrap: wrap; gap: 8px 24px; }
   footer.site a { display: inline-block; padding: 4px 0; }
   .small { font-size: 0.85rem; }
+  /* F0-1: shown only when the page was opened from the note in a report PDF (?utm_source=pdf). */
+  .from-report { background: var(--primary-container); color: var(--on-primary-container); padding: 12px 0; font-weight: 600; }
+  .from-report a { color: inherit; }
+  .cta.secondary { background: transparent; color: var(--primary); border: 2px solid var(--primary); }
+  .cta-row { display: flex; flex-wrap: wrap; gap: 0 12px; }
 
   @media (min-width: 768px) {
     section { padding: 72px 0; }
@@ -228,24 +236,26 @@
 
 <main id="main">
 
+  <div class="from-report" id="from-report" hidden>
+    <div class="wrap">You opened this from a cleaning report. <a href="#hosts">What is this report?</a></div>
+  </div>
+
   <section class="hero" aria-labelledby="hero-title">
     <div class="wrap hero-grid">
       <div>
         <h1 id="hero-title">Cleaning reports with before &amp; after photos, as one PDF</h1>
         <p class="lead">Take the photos in the app, tick off the tasks in each room, see what’s missing, and send a multi-page PDF report before you leave the job. Made for house cleaners and small cleaning businesses.</p>
-        <!-- Play linki yayında eklenecek (UTM'li Play URL'si, growth/LANDING.md {{PLAY_URL}}). Production yayından önce yayınlanırsa buton "Coming soon to Google Play" metnine çevrilir. -->
-        <!-- Kapalı test dönemi (Eki 2026): CTA beta grubuna gider. Production yayında #play'e dönülür ve beta bloğu kaldırılır. -->
-        <a class="cta" id="beta" href="https://groups.google.com/g/tidyslip-testers">
-          <svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path fill="currentColor" d="M5 20h14v-2H5v2zM19 9h-4V3H9v6H5l7 7 7-7z"/></svg>
-          Join the free Android beta
+        <!-- L0 sürümü (BRIEF karar 25): production'da herkese açık. Play linki `data-play` ile utm'yi alır; varsayılan landing/web. -->
+        <a class="play-badge" id="play" data-play href="https://play.google.com/store/apps/details?id=com.tidyslip.app&amp;referrer=utm_source%3Dlanding%26utm_medium%3Dweb">
+          <img src="img/google-play-badge.png" width="646" height="250" alt="Get it on Google Play">
         </a>
-        <p class="beta-steps">Two steps: join the tester group with your Google account, then tap <a href="https://play.google.com/apps/testing/com.tidyslip.app">Become a tester</a> and install from Google Play. Please don’t buy Pro during the beta (it’s a real charge). Testers are asked to open the app a few times over 14 days. Feedback: <a href="mailto:turkogluarda0@gmail.com?subject=Tidyslip%20beta">turkogluarda0@gmail.com</a>.</p>
+        <p class="beta-steps">Your first 3 reports are free. Pro is a one-time purchase, with no subscription and no account.</p>
         <ul class="facts" aria-label="Key facts">
           <li class="accent">Android</li>
           <li>Works offline</li>
           <li>No account</li>
           <li>No ads</li>
-          <li>English, Português, Español, Deutsch, Français</li>
+          <li>English, Português, Español, Deutsch, Français, Türkçe</li>
         </ul>
       </div>
       <figure>
@@ -383,6 +393,20 @@
     </div>
   </section>
 
+  <section id="hosts" aria-labelledby="hosts-title">
+    <div class="wrap">
+      <h2 id="hosts-title">Got a report made with Tidyslip?</h2>
+      <p class="lead">Your cleaner sent you a PDF: each room’s checklist, before and after photos, and any issues they noted, such as damage, supplies running low or items left behind. It opens on any phone or computer. You don’t need the app to read it.</p>
+      <h3>Want a report like this after every clean?</h3>
+      <p>Tidyslip is an Android app for cleaners. The first 3 reports are free, with no account and no subscription. Send this page to your cleaner:</p>
+      <div class="cta-row">
+        <a class="cta" id="host-whatsapp" href="https://wa.me/?text=Could%20you%20send%20me%20a%20before%20and%20after%20photo%20report%20like%20this%20after%20each%20clean%3F%20https%3A%2F%2Fardaturkoglu.github.io%2Ftidyslip%2F%3Futm_source%3Dhost%26utm_medium%3Dshare">Send to my cleaner on WhatsApp</a>
+        <a class="cta secondary" href="mailto:?subject=Cleaning%20report%20after%20each%20clean&amp;body=Could%20you%20send%20me%20a%20before%20and%20after%20photo%20report%20like%20this%20after%20each%20clean%3F%20https%3A%2F%2Fardaturkoglu.github.io%2Ftidyslip%2F%3Futm_source%3Dhost%26utm_medium%3Dshare">Send by email</a>
+      </div>
+      <p class="small">Are you the cleaner? <a data-play href="https://play.google.com/store/apps/details?id=com.tidyslip.app&amp;referrer=utm_source%3Dlanding">Get Tidyslip on Google Play</a>.</p>
+    </div>
+  </section>
+
   <section aria-labelledby="faq-title">
     <div class="wrap">
       <h2 id="faq-title">Questions about the cleaning report app</h2>
@@ -448,8 +472,23 @@
       <li>Support: <a href="mailto:turkogluarda0@gmail.com">turkogluarda0@gmail.com</a></li>
     </ul>
     <p>© 2026 Arda Türkoğlu</p>
-    <p class="small">Google Play is a trademark of Google LLC.</p>
+    <p class="small">Google Play and the Google Play logo are trademarks of Google LLC.</p>
   </div>
 </footer>
+<script>
+// F0-1: no tracking here. The page only passes an allowlisted utm_source/utm_medium on to the Play link
+// (Play install referrer), and shows the "from a report" band for visitors who came from a report PDF.
+(function () {
+  var q = new URLSearchParams(location.search);
+  var ok = /^[a-z0-9_-]{1,30}$/;
+  var src = q.get('utm_source'), med = q.get('utm_medium');
+  if (src === 'pdf') document.getElementById('from-report').hidden = false;
+  if (!src || !ok.test(src)) return;
+  var ref = 'utm_source=' + src + (med && ok.test(med) ? '&utm_medium=' + med : '');
+  document.querySelectorAll('a[data-play]').forEach(function (a) {
+    a.href = 'https://play.google.com/store/apps/details?id=com.tidyslip.app&referrer=' + encodeURIComponent(ref);
+  });
+})();
+</script>
 </body>
 </html>
